@@ -13,6 +13,8 @@ export const classes = [
   { id: 8, label: 'Class 8' },
   { id: 9, label: 'Class 9' },
   { id: 10, label: 'Class 10' },
+  { id: 11, label: 'Class 11' },
+  { id: 12, label: 'Class 12' },
 ];
 
 export const languages = [
