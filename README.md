@@ -23,7 +23,7 @@ VidyaAI addresses these challenges with a **rural-first** design philosophy.
 ## ✨ Features
 
 ### For Students
-- 📚 **Structured Courses** — Organized by class (6-10) and subject
+- 📚 **Structured Courses** — Organized by class (6-12) and subject
 - 🌐 **Multilingual Support** — Learn in Hindi, English, and more
 - 🤖 **AI Tutor** — Ask doubts and get simple explanations
 - 🎤 **Voice Learning** — Ask questions and listen to answers
@@ -132,26 +132,6 @@ npm run dev           # Start server on port 5000
 cd client
 npm install
 npm run dev           # Start dev server on port 5173
-```
-
-### Environment Variables
-
-Create a `.env` file in the `server/` directory:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_key
-AI_API_KEY=your_ai_key
-```
-
----
-
-## 🔐 Authentication
-
-- **Registration** — `POST /api/auth/register`
-- **Login** — `POST /api/auth/login`
-- **Profile** — `GET /api/auth/profile`
 
 ### Roles
 - `student` — Access to student dashboard and learning features
@@ -186,26 +166,6 @@ feat(ui): create reusable button component
 feat(student): create learning dashboard
 feat(quiz): add quiz interface
 feat(ai): create tutor chat interface
-```
-
----
-
-## 📋 Jira Integration
-
-| Jira Issue | Feature |
-|------------|---------|
-| DLP-001 | Registration UI |
-| DLP-002 | Login UI |
-| DLP-004 | Course structure |
-| DLP-007 | Quiz UI |
-| DLP-010 | AI Tutor UI |
-| DLP-014 | Voice UI |
-| DLP-016 | Offline Downloads UI |
-| DLP-020 | Recommendation UI |
-| DLP-021 | Teacher Analytics UI |
-| DLP-022 | Admin UI |
-
----
 
 ## 🔮 Future Scope
 
