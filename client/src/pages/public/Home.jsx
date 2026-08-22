@@ -36,10 +36,10 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-primary-600 to-violet-700 py-16 md:py-24 dark:from-slate-900 dark:to-slate-900">
+      <section className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-primary-600 to-emerald-700 py-16 md:py-24 dark:from-slate-900 dark:to-slate-900">
         {/* Decorative circles */}
         <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary-400/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-violet-400/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-emerald-400/20 blur-3xl" />
         <div className="pointer-events-none absolute top-1/2 left-1/4 h-32 w-32 rounded-full bg-accent-400/10 blur-2xl" />
 
         <div className="container-app relative">
@@ -49,7 +49,7 @@ const Home = () => {
               AI-Powered • Multilingual • Offline-Capable
             </div>
             <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
-              Quality Learning, <span className="text-accent-400">Wherever You Are.</span>
+              Quality Learning, <span className="text-accent-300">Wherever You Are.</span>
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-lg text-primary-100">
               An AI-powered digital learning platform designed for rural school students.
@@ -131,7 +131,7 @@ const Home = () => {
       </section>
 
       {/* How It Works */}
-      <section className="bg-gradient-to-br from-slate-50 to-indigo-50 py-16 dark:from-slate-800/50 dark:to-slate-900">
+      <section className="bg-gradient-to-br from-slate-50 to-teal-50 py-16 dark:from-slate-800/50 dark:to-slate-900">
         <div className="container-app">
           <h2 className="text-center text-3xl font-bold">How It Works</h2>
           <p className="mt-2 text-center text-lg text-ink-light">Start learning in 5 simple steps</p>
@@ -139,7 +139,7 @@ const Home = () => {
             {steps.map((step, i) => (
               <div key={step.num} className="flex items-center gap-4">
                 <div className="card w-44 text-center transition-shadow hover:shadow-lg">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-violet-600 text-white font-bold shadow-md">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-emerald-600 text-white font-bold shadow-md">
                     {step.num}
                   </div>
                   <div className="mt-3 text-2xl">{step.icon}</div>
@@ -201,21 +201,21 @@ const Home = () => {
       </section>
 
       {/* AI Tutor Preview */}
-      <section className="bg-gradient-to-br from-purple-50 via-white to-indigo-50 py-16 dark:from-slate-900 dark:to-slate-900">
+      <section className="bg-gradient-to-br from-teal-50 via-white to-emerald-50 py-16 dark:from-slate-900 dark:to-slate-900">
         <div className="container-app">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-purple-100 px-4 py-1.5 text-sm font-medium text-purple-700">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary-100 px-4 py-1.5 text-sm font-medium text-primary-700">
                 <Bot className="h-3 w-3" />
                 AI Tutor
               </div>
-              <h2 className="text-3xl font-bold">Your Personal <span className="text-purple-600">AI Tutor</span></h2>
+              <h2 className="text-3xl font-bold">Your Personal <span className="text-primary-600">AI Tutor</span></h2>
               <p className="mt-4 text-ink-light">
                 Ask any doubt and get a simple explanation in your language. Available 24/7.
               </p>
               <div className="mt-6">
                 <Link to="/register">
-                  <Button className="bg-gradient-to-r from-purple-500 to-violet-600 text-white hover:from-purple-600 hover:to-violet-700">
+                  <Button className="bg-gradient-to-r from-primary-500 to-emerald-600 text-white hover:from-primary-600 hover:to-emerald-700">
                     Ask your doubt → Get a simple explanation
                   </Button>
                 </Link>
@@ -224,7 +224,7 @@ const Home = () => {
             <div className="card transition-shadow hover:shadow-lg">
               <div className="space-y-4">
                 <div className="flex justify-end">
-                  <div className="max-w-[80%] rounded-2xl rounded-br-sm bg-gradient-to-r from-primary-500 to-indigo-600 px-4 py-3 text-sm text-white shadow-md">
+                  <div className="max-w-[80%] rounded-2xl rounded-br-sm bg-gradient-to-r from-primary-500 to-emerald-600 px-4 py-3 text-sm text-white shadow-md">
                     Photosynthesis kya hota hai?
                   </div>
                 </div>
@@ -234,7 +234,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-ink-lighter">
-                  <Bot className="h-4 w-4 text-purple-500" />
+                  <Bot className="h-4 w-4 text-primary-500" />
                   AI Tutor
                 </div>
               </div>
@@ -261,7 +261,7 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-primary-600 via-indigo-600 to-violet-700 py-16">
+      <section className="relative overflow-hidden bg-gradient-to-r from-primary-600 via-teal-600 to-emerald-700 py-16">
         <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full bg-accent-400/10 blur-3xl" />
         <div className="container-app relative text-center">
