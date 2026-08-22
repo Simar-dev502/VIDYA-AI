@@ -1,21 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-
-const LANGUAGES = [
-  'Hindi',
-  'English',
-  'Punjabi',
-  'Tamil',
-  'Telugu',
-  'Bengali',
-  'Marathi',
-  'Gujarati',
-  'Kannada',
-  'Malayalam',
-  'Odia',
-  'Urdu',
-];
+import { BookOpen } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
+import Input from '../../components/common/Input';
+import Select from '../../components/common/Select';
+import Button from '../../components/common/Button';
+import { classes, languages } from '../../data/mockData';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +14,7 @@ const Register = () => {
     password: '',
     confirmPassword: '',
     class: '',
-    preferredLanguage: 'Hindi',
+    preferredLanguage: 'en',
   });
   const [formError, setFormError] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -64,7 +54,7 @@ const Register = () => {
       email: formData.email,
       password: formData.password,
       class: Number(formData.class),
-      preferredLanguage: formData.preferredLanguage,
+      preferredLanguage: formData.preferredLanguage === 'en' ? 'English' : 'Hindi',
     });
     setSubmitting(false);
 
@@ -76,20 +66,26 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-container">
-        <div className="auth-header">
-          <h1>VIDYA-AI</h1>
-          <h2>Create Your Account</h2>
-          <p>Join the digital learning platform</p>
+    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-12 dark:bg-slate-900">
+      <div className="w-full max-w-lg">
+        <div className="mb-8 text-center">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-600 text-white">
+            <BookOpen className="h-7 w-7" />
+          </div>
+          <h1 className="mt-4 text-2xl font-bold">Create Your Account</h1>
+          <p className="mt-1 text-sm text-ink-light">Join VidyaAI and start learning</p>
         </div>
 
-        {formError && <div className="alert alert-error">{formError}</div>}
+        <div className="card">
+          {formError && (
+            <div className="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
+              {formError}
+            </div>
+          )}
 
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label htmlFor="name">Full Name</label>
-            <input
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Input
+              label="Full Name"
               type="text"
               id="name"
               name="name"
@@ -98,11 +94,9 @@ const Register = () => {
               placeholder="e.g. Rahul Kumar"
               required
             />
-          </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
+            <Input
+              label="Email"
               type="email"
               id="email"
               name="email"
@@ -111,12 +105,10 @@ const Register = () => {
               placeholder="e.g. rahul@gmail.com"
               required
             />
-          </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Input
+                label="Password"
                 type="password"
                 id="password"
                 name="password"
@@ -125,11 +117,9 @@ const Register = () => {
                 placeholder="Min 6 characters"
                 required
               />
-            </div>
 
-            <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <input
+              <Input
+                label="Confirm Password"
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
@@ -139,12 +129,10 @@ const Register = () => {
                 required
               />
             </div>
-          </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="class">Class</label>
-              <select
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Select
+                label="Class"
                 id="class"
                 name="class"
                 value={formData.class}
@@ -152,41 +140,40 @@ const Register = () => {
                 required
               >
                 <option value="">Select Class</option>
-                {Array.from({ length: 12 }, (_, i) => i + 1).map((num) => (
-                  <option key={num} value={num}>
-                    Class {num}
+                {classes.map((cls) => (
+                  <option key={cls.id} value={cls.id}>
+                    {cls.label}
                   </option>
                 ))}
-              </select>
-            </div>
+              </Select>
 
-            <div className="form-group">
-              <label htmlFor="preferredLanguage">Preferred Language</label>
-              <select
+              <Select
+                label="Preferred Language"
                 id="preferredLanguage"
                 name="preferredLanguage"
                 value={formData.preferredLanguage}
                 onChange={handleChange}
               >
-                {LANGUAGES.map((lang) => (
-                  <option key={lang} value={lang}>
-                    {lang}
+                {languages.map((lang) => (
+                  <option key={lang.code} value={lang.code}>
+                    {lang.native}
                   </option>
                 ))}
-              </select>
+              </Select>
             </div>
-          </div>
 
-          <button type="submit" className="btn btn-primary btn-block" disabled={submitting}>
-            {submitting ? 'Creating Account...' : 'Register'}
-          </button>
-        </form>
-
-        <div className="auth-footer">
-          <p>
-            Already have an account? <Link to="/login">Login here</Link>
-          </p>
+            <Button type="submit" className="w-full" loading={submitting} disabled={submitting}>
+              {submitting ? 'Creating Account...' : 'Register'}
+            </Button>
+          </form>
         </div>
+
+        <p className="mt-6 text-center text-sm text-ink-light">
+          Already have an account?{' '}
+          <Link to="/login" className="font-medium text-primary-600 hover:underline">
+            Login here
+          </Link>
+        </p>
       </div>
     </div>
   );

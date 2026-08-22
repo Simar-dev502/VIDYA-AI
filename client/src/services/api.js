@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -9,7 +9,7 @@ const api = axios.create({
   },
 });
 
-// Add token to requests if it exists
+// Request interceptor - add token
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -21,7 +21,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Handle 401 responses
+// Response interceptor - handle errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -32,17 +32,5 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-export const authAPI = {
-  register: (userData) => api.post('/auth/register', userData),
-  login: (credentials) => api.post('/auth/login', credentials),
-  getProfile: () => api.get('/auth/profile'),
-};
-
-export const dashboardAPI = {
-  student: () => api.get('/student/dashboard'),
-  teacher: () => api.get('/teacher/dashboard'),
-  admin: () => api.get('/admin/dashboard'),
-};
 
 export default api;
