@@ -48,30 +48,30 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Hero Illustration */}
+          {/* Hero Quote */}
           <div className="mx-auto mt-12 max-w-2xl">
             <div className="relative rounded-2xl bg-white p-8 shadow-lg dark:bg-slate-800">
               <div className="flex items-center gap-4">
                 <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-primary-100 text-3xl dark:bg-primary-900/30">
-                  🎓
+                  💡
                 </div>
                 <div>
-                  <h3 className="font-semibold">Rahul, Class 8</h3>
-                  <p className="text-sm text-ink-light">Learning Science in Hindi</p>
+                  <h3 className="font-semibold">"Shiksha hi shakti hai"</h3>
+                  <p className="text-sm text-ink-light">Education is the most powerful weapon</p>
                 </div>
               </div>
               <div className="mt-6 grid grid-cols-3 gap-4">
                 <div className="rounded-lg bg-slate-50 p-3 text-center dark:bg-slate-700">
                   <div className="text-2xl">📚</div>
-                  <p className="mt-1 text-xs font-medium">Lessons</p>
+                  <p className="mt-1 text-xs font-medium">Learn</p>
                 </div>
                 <div className="rounded-lg bg-slate-50 p-3 text-center dark:bg-slate-700">
-                  <div className="text-2xl">📱</div>
-                  <p className="mt-1 text-xs font-medium">Mobile</p>
+                  <div className="text-2xl">🌍</div>
+                  <p className="mt-1 text-xs font-medium">Grow</p>
                 </div>
                 <div className="rounded-lg bg-slate-50 p-3 text-center dark:bg-slate-700">
-                  <div className="text-2xl">💡</div>
-                  <p className="mt-1 text-xs font-medium">AI Tutor</p>
+                  <div className="text-2xl">🚀</div>
+                  <p className="mt-1 text-xs font-medium">Succeed</p>
                 </div>
               </div>
             </div>
